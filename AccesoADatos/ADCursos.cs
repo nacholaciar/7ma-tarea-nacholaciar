@@ -101,6 +101,35 @@ namespace miapp_r2.AccesoADatos
             }
 
         } // transaccion
+
+        public static DataTable ObtenerListadoDeCursos()
+        {
+
+            // conexion base de datos con este form
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaBD2"];
+            SqlCommand comando = new SqlCommand();
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            // hacemos las consultas a la base de datos
+            string consulta = "SELECT * FROM cursos2";
+
+            comando.Parameters.Clear(); // limpiar todos los parametros que pueda tener
+
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = consulta;
+
+            conexion.Open(); // abrimos conexion a la BD
+            comando.Connection = conexion;
+
+            DataTable tabla = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(tabla);
+
+            return tabla;
+
+        } // [Form ReporteListadoCursos] conexion a la BD para traer los datos a la grilla
+
+
     }
 
 
