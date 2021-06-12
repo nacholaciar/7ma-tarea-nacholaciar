@@ -50,5 +50,11 @@ namespace miapp_r2
             AltaCurso ventana = new AltaCurso();
             ventana.ShowDialog(); // ShowDialog no me permite interactuar con la ventana padre
         }
+
+        private void listadoDeCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteListadoCursos ventana = new ReporteListadoCursos();
+            ventana.ShowDialog();
+        }
     }
 }
