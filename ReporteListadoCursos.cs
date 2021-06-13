@@ -16,5 +16,11 @@ namespace miapp_r2
         {
             InitializeComponent();
         }
+
+        private void ReporteListadoCursos_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
