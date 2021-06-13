@@ -81,6 +81,11 @@
     <Compile Include="AltaPersona.Designer.cs">
       <DependentUpon>AltaPersona.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConjuntoDatos\Estadisticas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Estadisticas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="entidades\Persona.cs" />
     <Compile Include="entidades\Usuario.cs" />
     <Compile Include="Login.cs">
@@ -143,6 +148,17 @@
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ConjuntoDatos\Estadisticas.xsc">
+      <DependentUpon>Estadisticas.xsd</DependentUpon>
+    </None>
+    <None Include="ConjuntoDatos\Estadisticas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Estadisticas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ConjuntoDatos\Estadisticas.xss">
+      <DependentUpon>Estadisticas.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
