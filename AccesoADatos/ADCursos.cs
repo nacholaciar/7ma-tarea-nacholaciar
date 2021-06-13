@@ -129,6 +129,33 @@ namespace miapp_r2.AccesoADatos
 
         } // [Form ReporteListadoCursos] conexion a la BD para traer los datos a la grilla
 
+        public static DataTable ObtenerEstadisticasCursos()
+        {
+
+            // conexion base de datos con este form
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaBD2"];
+            SqlCommand comando = new SqlCommand();
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            // hacemos las consultas a la base de datos
+            string consulta = "Select c.Nombre, COUNT(pc.IdPersona) as Cantidad FROM personas_por_cursos pc Inner join cursos2 c On pc.IdCurso = c.Id Group by c.Nombre; ";
+
+            comando.Parameters.Clear(); // limpiar todos los parametros que pueda tener
+
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = consulta;
+
+            conexion.Open(); // abrimos conexion a la BD
+            comando.Connection = conexion;
+
+            DataTable tabla = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(tabla);
+
+            return tabla;
+
+        } // [Form ReporteListadoCursos] conexion a la BD para traer los datos a la grilla
+
 
     }
 

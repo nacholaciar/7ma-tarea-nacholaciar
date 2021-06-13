@@ -56,5 +56,11 @@ namespace miapp_r2
             ReporteListadoCursos ventana = new ReporteListadoCursos();
             ventana.ShowDialog();
         }
+
+        private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Estadisticas ventana = new Estadisticas();
+            ventana.ShowDialog();
+        }
     }
 }
