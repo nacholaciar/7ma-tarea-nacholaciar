@@ -19,6 +19,8 @@ namespace miapp_r2
 
         private void ReporteListadoCursos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla '_miapp_r4DataSet.cursos2' Puede moverla o quitarla según sea necesario.
+            this.cursos2TableAdapter.Fill(this._miapp_r4DataSet.cursos2);
 
             this.reportViewer1.RefreshReport();
         }

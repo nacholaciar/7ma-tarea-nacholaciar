@@ -29,18 +29,43 @@ namespace miapp_r2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this._miapp_r4DataSet = new miapp_r2._miapp_r4DataSet();
+            this.cursos2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cursos2TableAdapter = new miapp_r2._miapp_r4DataSetTableAdapters.cursos2TableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this._miapp_r4DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursos2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DatosCursos";
+            reportDataSource1.Value = this.cursos2BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "miapp_r2.ListadoDeCursos.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            // 
+            // _miapp_r4DataSet
+            // 
+            this._miapp_r4DataSet.DataSetName = "_miapp_r4DataSet";
+            this._miapp_r4DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cursos2BindingSource
+            // 
+            this.cursos2BindingSource.DataMember = "cursos2";
+            this.cursos2BindingSource.DataSource = this._miapp_r4DataSet;
+            // 
+            // cursos2TableAdapter
+            // 
+            this.cursos2TableAdapter.ClearBeforeFill = true;
             // 
             // ReporteListadoCursos
             // 
@@ -52,6 +77,8 @@ namespace miapp_r2
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de cursos";
             this.Load += new System.EventHandler(this.ReporteListadoCursos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this._miapp_r4DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursos2BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -59,5 +86,8 @@ namespace miapp_r2
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource cursos2BindingSource;
+        private _miapp_r4DataSet _miapp_r4DataSet;
+        private _miapp_r4DataSetTableAdapters.cursos2TableAdapter cursos2TableAdapter;
     }
 }
