@@ -1,4 +1,6 @@
-﻿using System;
+﻿using miapp_r2.AccesoADatos;
+using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +29,14 @@ namespace miapp_r2
 
         private void reportViewer1_Load(object sender, EventArgs e)
         {
+            DataTable tabla = new DataTable();
+            tabla = ADCursos.ObtenerListadoDeCursos();
 
+            ReportDataSource ds = new ReportDataSource("DatosCursos", tabla);
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(ds);
+            reportViewer1.LocalReport.Refresh();
         }   
     }
 }
